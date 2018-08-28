@@ -1,12 +1,14 @@
 <template>
-  <router-view></router-view>
+
+  <h1>Hello world</h1>
+
 </template>
 
 <script>
   export default {
     data() {
       return {};
-    }
+    },
   }
 </script>
 

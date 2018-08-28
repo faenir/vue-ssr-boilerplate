@@ -1,5 +1,7 @@
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const title = 'Vue ssr boilerplate by PIXIRE agency';
 const keywords = 'vue, ssr, boilerplate, PIXIRE';
@@ -18,6 +20,22 @@ module.exports = {
     overlay: true
   },
 
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    },
+    extensions: ['*', '.js', '.vue', '.json']
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: 'vue ssr boilerplate',
@@ -34,7 +52,9 @@ module.exports = {
         {hid: 'ogtitle', property: 'og:title', content: title},
         {hid: 'ogdescription', property: 'og:description', content: description},
         //{hid: 'ogimage', property: 'og:image', content: ogImage},
-      ]
-    })
+      ],
+      templateContent: '<div id="app"> </div>'
+    }),
+    new VueLoaderPlugin()
   ]
 };
