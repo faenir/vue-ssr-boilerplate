@@ -1,7 +1,7 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const title = 'Vue ssr boilerplate by PIXIRE agency';
 const keywords = 'vue, ssr, boilerplate, PIXIRE';
@@ -9,7 +9,7 @@ const description = 'Simple vue ssr boilerplate by PIXIRE agency';
 
 module.exports = {
 
-  entry: './source/app.js',
+  entry: './src/app.js',
 
   output: {
     path: path.resolve(__dirname, 'dist'),
